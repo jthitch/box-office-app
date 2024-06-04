@@ -1,22 +1,23 @@
-import ActorCard from './ActorsCard'
+import ActorCard from './ActorsCard';
 
 const ActorsGrid = ({ actors }) => {
-    return (
-        <div>
-        {actors.map(data => (
-          <ActorCard 
-            key={data.person.id}
-            name={data.person.name}
-            country={data.person.country ? data.person.country.name : null}
-            birthday = {data.person.birthday}
-            deathday={data.person.deathday}
-            gender={data.person.gender}
-            image={(data.person.image ? data.person.image.medium : 'not-found-image.png')} 
+  return (
+    <div>
+      {actors.map(data => (
+        <ActorCard
+          key={data.person.id}
+          name={data.person.name}
+          country={data.person.country ? data.person.country.name : null}
+          birthday={data.person.birthday}
+          deathday={data.person.deathday}
+          gender={data.person.gender}
+          image={
+            data.person.image ? data.person.image.medium : 'not-found-image.png'
+          }
+        />
+      ))}
+    </div>
+  );
+};
 
-            />
-        ))}
-      </div>
-    )
-}
-
-export default ActorsGrid
+export default ActorsGrid;

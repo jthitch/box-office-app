@@ -8,7 +8,6 @@ const Home = () => {
   const [apiData, setApiData] = useState(null);
   const [apiDataError, setapiDataError] = useState(null);
 
-
   const onSearch = async ({ q, searchOption }) => {
     try {
       setapiDataError(null);
@@ -17,7 +16,7 @@ const Home = () => {
       if (searchOption === 'shows') {
         result = await searchForShows(q);
       } else {
-        result = await searchForPeople(q); 
+        result = await searchForPeople(q);
       }
       setApiData(result);
     } catch (error) {
@@ -30,12 +29,16 @@ const Home = () => {
       return <div>An Error occured, please try again</div>;
     }
 
-    if(apiData?.length === 0){
-      return <div>No results</div>
+    if (apiData?.length === 0) {
+      return <div>No results</div>;
     }
 
     if (apiData) {
-      return apiData[0].show ? <ShowGrid shows={apiData} /> : <ActorsGrid actors={apiData}/>
+      return apiData[0].show ? (
+        <ShowGrid shows={apiData} />
+      ) : (
+        <ActorsGrid actors={apiData} />
+      );
     }
     return null;
   };
@@ -43,7 +46,7 @@ const Home = () => {
   return (
     <div>
       <SearchForm onSearch={onSearch} />
-     
+
       <div>{renderApiData()}</div>
     </div>
   );
