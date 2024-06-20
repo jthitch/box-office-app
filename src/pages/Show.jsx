@@ -26,10 +26,6 @@ const Show = () => {
 
       <Link to="/">Go to home</Link>
 
-
-
-
-
       <ShowMainData image={showData.image} name={showData.name} rating={showData.rating} summary={showData.summary} genres={showData.genres}/>
 
       <div>

@@ -4,6 +4,8 @@ import SearchForm from './../components/SearchForm';
 import ShowGrid from '../components/shows/ShowGrid';
 import ActorsGrid from '../components/actors/ActorsGrid';
 import { useQuery } from '@tanstack/react-query'
+import styled, { css, ThemeProvider } from 'styled-components'
+
 
 const Home = () => {
 
@@ -40,7 +42,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div>      
       <SearchForm onSearch={onSearch} />
 
       <div>{renderApiData()}</div>
